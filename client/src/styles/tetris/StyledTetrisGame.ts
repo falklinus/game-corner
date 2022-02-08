@@ -4,6 +4,7 @@ export const StyledTetrisWrapper = styled.div`
 	height: 100vh;
 	width: 100vw;
 	padding: 1em;
+	outline: none;
 
 	header {
 		display: flex;
@@ -39,9 +40,9 @@ export const StyledTetrisGame = styled.div`
 	}
 
 	.preview-shape {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+		display: grid;
+		grid-template-columns: repeat(4, 30px);
+		grid-template-rows: repeat(4, 30px);
 	}
 
 	@media only screen and (max-width: 460px) {
@@ -50,7 +51,11 @@ export const StyledTetrisGame = styled.div`
 
 		.display-wrapper {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			grid-template-areas:
+				'preview'
+				'preview';
 		}
 	}
 `

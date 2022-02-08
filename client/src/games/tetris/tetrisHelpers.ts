@@ -1,3 +1,5 @@
+import { Player } from 'interfaces/tetris'
+
 export const SHAPES: any = {
 	empty: [['']],
 	A: [
@@ -38,20 +40,19 @@ export const SHAPES: any = {
 		['', '', ''],
 	],
 	H: [
-		['', 'H', 'H'],
-		['', 'H', 'H'],
-		['', '', ''],
+		['H', 'H'],
+		['H', 'H'],
 	],
 }
 
 const COLORS: string[] = [
-	'0, 175, 0',
-	'175, 175, 0',
-	'175, 0, 0',
-	'175, 0, 175',
-	'90, 0, 175',
-	'0, 0, 175',
-	'175, 90, 0',
+	'122, 15, 106',
+	'122, 15, 15',
+	'15, 40, 122',
+	'15, 122, 67',
+	'171, 173, 42',
+	'173, 114, 42',
+	'112, 42, 173',
 ]
 
 export const BOARD_WIDTH = 10
@@ -70,4 +71,25 @@ export const randomShape = () => {
 		shape: SHAPES[randomShape],
 		color: COLORS[Math.floor(Math.random() * COLORS.length)],
 	}
+}
+
+export const checkCollision = (
+	player: any,
+	board: any,
+	{ x: moveX, y: moveY }: any
+) => {
+	for (let y = 0; y < player.shape.length; y++) {
+		for (let x = 0; x < player.shape[y].length; x++) {
+			if (player.shape[y][x].value) {
+				if (
+					!board[y + player.pos.y + moveY] ||
+					!board[y + player.pos.y + moveY][x + player.pos.x + moveX] ||
+					board[y + player.pos.y + moveY][x + player.pos.x + moveX].status !==
+						'clear'
+				)
+					return true
+			}
+		}
+	}
+	return false
 }

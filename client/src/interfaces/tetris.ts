@@ -5,6 +5,7 @@ export interface Shape {
 
 export interface Player {
 	pos: { x: number; y: number }
-	shape: Shape
+	shape: { value: string; color?: string }[][]
+	color?: string
 	collided: boolean
 }

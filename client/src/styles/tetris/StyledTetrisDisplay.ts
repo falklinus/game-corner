@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export const StyledTetrisDisplay = styled.div<{ color: string }>`
-	border: 2px solid grey;
+	/* border: 2px solid grey; */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
 	padding: 0.5em 0;
 	font-size: 1em;
 	width: 5em;
@@ -11,6 +13,8 @@ export const StyledTetrisDisplay = styled.div<{ color: string }>`
 	display: flex;
 	align-items: center;
 	position: relative;
+	color: white;
+	pointer-events: none;
 
 	.label {
 		position: absolute;

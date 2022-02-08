@@ -6,6 +6,7 @@ export const StyledTetrisBoard = styled.div<{
 	yBlocks: number
 	width: number
 }>`
+	background: white;
 	display: grid;
 	grid-template-rows: repeat(
 		${props => props.yBlocks},
@@ -13,7 +14,12 @@ export const StyledTetrisBoard = styled.div<{
 	);
 	grid-template-columns: repeat(${props => props.xBlocks}, 1fr);
 	gap: 1px;
-	border: 2px solid grey;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 	width: 100%;
 	max-width: ${props => props.width}px;
+	border-radius: 5px;
+
+	// &:hover {
+	// 	transform: scale(1.2);
+	// }
 `
