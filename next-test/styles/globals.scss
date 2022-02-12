@@ -63,3 +63,15 @@ a {
   box-sizing: border-box;
   @apply text-gray-700;
 }
+
+.TETRIS_START_BUTTON {
+  position: relative;
+  background: white;
+  background-position: 0% 0%;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-image: url('../public/112809.jpeg');
+    background-position: 20% 35%;
+  }
+}

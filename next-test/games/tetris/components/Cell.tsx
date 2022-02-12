@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-const Cell = ({ cell: color }: { cell: string }) => {
+import { useState, useEffect, memo } from 'react'
+const Cell = ({ color }: { color: string }) => {
   const [colorStyle, setColorStyle] = useState('')
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Cell = ({ cell: color }: { cell: string }) => {
         )
         break
       default:
-        setColorStyle('bg-gray-700')
+        setColorStyle('bg-white')
         break
     }
   }, [color])
@@ -48,4 +48,4 @@ const Cell = ({ cell: color }: { cell: string }) => {
   return <span className={'h-6 w-6 ' + colorStyle} />
 }
 
-export default Cell
+export default memo(Cell)
