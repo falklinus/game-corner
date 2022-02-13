@@ -1,17 +1,14 @@
-import { Dispatch, SetStateAction, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Display, Board } from 'games/tetris/components'
 import { useTetris, useBoard } from 'games/tetris/hooks'
 
-import { UseTetris } from 'games/tetris/types'
+import { UseBoard, UseTetris } from 'games/tetris/types'
 import { checkCollision, createBoard } from 'games/tetris/util'
 
 const Tetris = () => {
   const [tetris, updatePosition, resetTetris]: UseTetris = useTetris()
-  const [board, setBoard]: [
-    board: { color: string; fixed: boolean }[][],
-    setBoard: Dispatch<SetStateAction<{ color: string; fixed: boolean }[][]>>
-  ] = useBoard(tetris, resetTetris)
+  const [board, setBoard]: UseBoard = useBoard(tetris, resetTetris)
 
   const [gameOver, setGameOver] = useState(true)
 
@@ -24,18 +21,17 @@ const Tetris = () => {
   useEffect(() => {
     const move = (direction: number) => {
       if (checkCollision(board, tetris, { x: direction, y: 0 })) return
-      updatePosition({ x: direction, y: 0, collided: false })
+      updatePosition({ pos: { x: direction, y: 0 }, collided: false })
     }
 
     const drop = () => {
-      console.log(checkCollision(board, tetris, { x: 0, y: 1 }))
       if (!checkCollision(board, tetris, { x: 0, y: 1 }))
-        return updatePosition({ x: 0, y: 1, collided: false })
+        return updatePosition({ pos: { x: 0, y: 1 }, collided: false })
       if (tetris.pos.y < 1) {
         setGameOver(true)
         return
       }
-      updatePosition({ x: 0, y: 0, collided: true })
+      updatePosition({ pos: { x: 0, y: 0 }, collided: true })
     }
 
     const handleKeyDown = ({ key }: KeyboardEvent) => {

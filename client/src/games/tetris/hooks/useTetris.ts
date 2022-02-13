@@ -1,14 +1,16 @@
 import { useState, useCallback } from 'react'
-import { UseTetris } from '../types'
+import { Position, Tetris, UseTetris } from '../types'
+import { getRandomTetris } from '../util'
 
 export const useTetris = (): UseTetris => {
-  const [tetris, setTetris] = useState({
+  const [tetris, setTetris] = useState<Tetris>({
     pos: { x: 0, y: 0 },
     shape: [[{ color: '', fixed: false }]],
     collided: false,
   })
+  const [nextTetris, setNextTetris] = useState<Tetris>(getRandomTetris())
 
-  const updatePosition = ({ x, y, collided }: { x: number; y: number; collided: boolean }) => {
+  const updatePosition = ({ pos: { x, y }, collided }: { pos: Position; collided: boolean }) => {
     setTetris((prevTetris) => ({
       ...prevTetris,
       pos: {
@@ -20,26 +22,9 @@ export const useTetris = (): UseTetris => {
   }
 
   const resetTetris = useCallback(() => {
-    setTetris({
-      pos: { x: 3, y: 0 },
-      shape: [
-        [
-          { color: 'pink', fixed: false },
-          { color: 'pink', fixed: false },
-          { color: '', fixed: false },
-        ],
-        [
-          { color: '', fixed: false },
-          { color: 'pink', fixed: false },
-          { color: 'pink', fixed: false },
-        ],
-        [
-          { color: '', fixed: false },
-          { color: '', fixed: false },
-          { color: '', fixed: false },
-        ],
-      ],
-      collided: false,
+    setNextTetris((nextTetris) => {
+      setTetris(nextTetris)
+      return getRandomTetris()
     })
   }, [])
 
