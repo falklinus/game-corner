@@ -28,5 +28,5 @@ export const useTetris = (): UseTetris => {
     })
   }, [])
 
-  return [tetris, updatePosition, resetTetris]
+  return [tetris, updatePosition, resetTetris, nextTetris]
 }

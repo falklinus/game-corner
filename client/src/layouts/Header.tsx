@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   const [showNav, setShowNav] = useState<boolean>(false)
   return (
-    <div className='mx-auto mb-8 px-10'>
+    <div className='mx-auto mb-4 px-10'>
       <div className='relative flex w-full items-center justify-between border-b-2 border-gray-400 py-8'>
         <div>
           <Link to='/'>

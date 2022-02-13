@@ -3,7 +3,8 @@ import { Dispatch, SetStateAction } from 'react'
 export type UseTetris = [
   tetris: Tetris,
   updatePosition: ({ pos: { x, y }, collided }: { pos: Position; collided: boolean }) => void,
-  resetTetris: () => void
+  resetTetris: () => void,
+  nextTetris: Tetris
 ]
 
 export type Position = {

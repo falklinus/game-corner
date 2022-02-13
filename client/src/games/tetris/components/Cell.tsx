@@ -39,6 +39,9 @@ const Cell = ({ color }: { color: string }) => {
           'bg-purple-400 border-2 border-t-purple-300 border-r-purple-300 border-b-purple-500 border-l-purple-500'
         )
         break
+      case 'transparent':
+        setColorStyle('bg-transparent')
+        break
       default:
         setColorStyle('bg-white')
         break
