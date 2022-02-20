@@ -15,8 +15,8 @@ const Header = () => {
           <Link to='/games/tetris'>
             <span className='cursor-pointer font-semibold'>Tetris</span>
           </Link>
-          <Link to='/games/mario'>
-            <span className='cursor-pointer font-semibold'>Mario</span>
+          <Link to='/games/ballbreaker'>
+            <span className='cursor-pointer font-semibold'>Ballbreaker</span>
           </Link>
           <Link to='/games'>
             <span className='cursor-pointer font-semibold'>Browse</span>
@@ -45,7 +45,7 @@ const Header = () => {
         <div
           className={`${
             showNav ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
-          } top absolute top-full right-0 -mt-4 flex min-w-[8rem] flex-col gap-4 rounded-lg bg-gray-700 py-4 px-2 uppercase shadow-md transition duration-200 md:hidden`}
+          } top absolute top-full right-0 -mt-4 flex min-w-[8rem] flex-col gap-4 rounded-lg bg-gray-700 p-4 uppercase shadow-md transition duration-200 md:hidden`}
         >
           <div className='absolute bottom-full right-3 -mb-1 border-l-[16px] border-r-[16px] border-b-[16px] border-l-transparent border-r-transparent border-b-gray-700' />
           <Link to='/games/tetris'>
@@ -53,9 +53,9 @@ const Header = () => {
               Tetris
             </span>
           </Link>
-          <Link to='/games/mario'>
+          <Link to='/games/ballbreaker'>
             <span className='w-full cursor-pointer text-center font-semibold text-white'>
-              Mario
+              Ballbreaker
             </span>
           </Link>
           <Link to='/games'>
