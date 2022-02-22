@@ -1,18 +1,6 @@
-import { useEffect, useState } from 'react'
+import { Canvas } from '.'
 
 const BallbreakerGame = () => {
-  const [canvasize, setCanvasSize] = useState({
-    width: window.innerWidth - 80,
-    height: (window.innerWidth - 80) / 2,
-  })
-  const handleResize = () => {
-    setCanvasSize({ width: window.innerWidth - 80, height: (window.innerWidth - 80) / 2 })
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
   return (
     <div className='flex flex-col gap-2'>
       <div className='flex justify-between'>
@@ -27,11 +15,9 @@ const BallbreakerGame = () => {
           START GAME
         </button>
       </div>
-      <canvas
-        width={canvasize.width}
-        height={canvasize.height}
-        className='bg-gray-700 mx-auto rounded-lg'
-      ></canvas>
+      <div>
+        <Canvas />
+      </div>
     </div>
   )
 }

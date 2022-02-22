@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 
 import { Display, Board, NextTetris } from 'games/tetris/components'
-import { useTetris, useBoard, useGameStats, useFrameTime } from 'games/tetris/hooks'
+import { useTetris, useBoard, useGameStats } from 'games/tetris/hooks'
+import { useFrameTime } from 'hooks'
 
 import { UseBoard, UseGameStats, UseTetris } from 'games/tetris/types'
 import { checkCollision, createBoard } from 'games/tetris/util'
