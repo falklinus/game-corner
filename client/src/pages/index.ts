@@ -1,4 +1,5 @@
+export { default as Browse } from './Browse'
 export { default as Login } from './Login'
 export { default as Register } from './Register'
 export { default as Tetris } from './Tetris'
-export { default as Ballbreaker } from './Ballbreaker'
+export { default as Brickbreaker } from './Brickbreaker'

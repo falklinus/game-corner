@@ -19,8 +19,8 @@ const Header = () => {
           <Link to='/games/tetris'>
             <span className='cursor-pointer font-semibold'>Tetris</span>
           </Link>
-          <Link to='/games/ballbreaker'>
-            <span className='cursor-pointer font-semibold'>Ballbreaker</span>
+          <Link to='/games/brickbreaker'>
+            <span className='cursor-pointer font-semibold flex'>BrickBreaker</span>
           </Link>
           <Link to='/games'>
             <span className='cursor-pointer font-semibold'>Browse</span>
@@ -110,8 +110,8 @@ const Header = () => {
           <Link to='/games/tetris' onClick={() => setShowNav(false)}>
             <span className='w-full cursor-pointer font-semibold text-white'>Tetris</span>
           </Link>
-          <Link to='/games/ballbreaker' onClick={() => setShowNav(false)}>
-            <span className='w-full cursor-pointer font-semibold text-white'>Ballbreaker</span>
+          <Link to='/games/brickbreaker' onClick={() => setShowNav(false)}>
+            <span className='w-full cursor-pointer font-semibold text-white'>Brick Breaker</span>
           </Link>
           <Link to='/games' onClick={() => setShowNav(false)}>
             <span className='w-full cursor-pointer font-semibold text-white'>Browse</span>

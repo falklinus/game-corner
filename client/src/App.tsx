@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Header } from 'layouts'
-import { Login, Register, Tetris, Ballbreaker } from 'pages'
+import { Login, Register, Tetris, Brickbreaker, Browse } from 'pages'
 
 const App = () => {
   return (
@@ -9,8 +9,9 @@ const App = () => {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/games' element={<Browse />} />
         <Route path='/games/tetris' element={<Tetris />} />
-        <Route path='/games/ballbreaker' element={<Ballbreaker />} />
+        <Route path='/games/brickbreaker' element={<Brickbreaker />} />
       </Routes>
     </Router>
   )
