@@ -8,14 +8,14 @@ export const usePaddle = (canvas: {
 }) => {
   const [paddle, setPaddle] = useState<{
     x: number | undefined
-    y: number | undefined
+    y: number
     width: number
     height: number
   }>({
-    x: undefined,
-    y: undefined,
+    x: canvas.width / 2 - 50,
+    y: canvas.height - 30,
     width: 100,
-    height: 10,
+    height: 15,
   })
 
   const handleMouseMove = useCallback(
@@ -29,17 +29,25 @@ export const usePaddle = (canvas: {
               : e.clientX < prevPaddle.width / 2 + canvas.left
               ? 0
               : e.clientX - prevPaddle.width / 2 - canvas.left,
-          y: (canvas.height as number) - prevPaddle.height - 10,
         }
       })
     },
     [canvas.width, canvas.height, canvas.left]
   )
 
-  const drawPaddle = () => {
+  const draw = () => {
     if (!canvas.ctx) return
     canvas.ctx.fillStyle = 'rgb(55,65,81)'
     canvas.ctx.fillRect(paddle.x as number, paddle.y as number, paddle.width, paddle.height)
+  }
+
+  const resetPaddle = () => {
+    setPaddle({
+      x: canvas.width / 2 - 50,
+      y: canvas.height - 30,
+      width: 100,
+      height: 15,
+    })
   }
 
   useEffect(() => {
@@ -47,5 +55,5 @@ export const usePaddle = (canvas: {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [handleMouseMove])
 
-  return { paddle, drawPaddle }
+  return { paddle, draw, resetPaddle }
 }

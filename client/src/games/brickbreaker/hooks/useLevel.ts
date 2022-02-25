@@ -22,7 +22,11 @@ export const useLevel = (canvas: {
     height: canvas.height / (2 * GRID_SIZE.height),
   }
 
-  const drawLevel = () => {
+  const removeBrick = (idx: number) => {
+    setBricks((prevBricks: any) => [...prevBricks.filter((_: any, i: number) => i !== idx)])
+  }
+
+  const draw = () => {
     if (!canvas.ctx) return
     for (let i = 0; i < bricks.length; i++) {
       canvas.ctx.drawImage(
@@ -39,5 +43,19 @@ export const useLevel = (canvas: {
     }
   }
 
-  return { drawLevel }
+  const resetLevel = () => {
+    setBricks(getLevel(level))
+  }
+
+  return {
+    bricks: bricks.map((brick: any) => ({
+      x: brick.pos.x,
+      y: brick.pos.y,
+      width: ratio.width,
+      height: ratio.height,
+    })),
+    draw,
+    removeBrick,
+    resetLevel,
+  }
 }
